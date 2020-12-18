@@ -1,24 +1,23 @@
-# draw-image-editor
+<!--
+ * @Author: your name
+ * @Date: 2020-12-11 15:23:04
+ * @LastEditTime: 2020-12-18 11:25:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /draw-image-editor/README.md
+-->
 
-## Project setup
-```
-npm install
-```
+### draw-image-editor
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
-```
+@name  canvasData
+@desc  初始化数据
+@param {String | Object}
+    String : 初次加载，传入URL即可。
+    Object : 编辑时，传入生成的Object
 
-### Compiles and minifies for production
+@name  maxWidth
+@desc  canvas最大宽度
+@param {String | Number}
+    default 1000
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
