@@ -26,14 +26,6 @@
 		_render(ctx) {
 			// this.callSuper('_render', ctx);
 			// ctx.save();
-			console.log(
-				this.x1,
-				this.y1,
-				this.x2,
-				this.y2,
-				this,
-				"this.x1, this.y1, this.x2, this.y2"
-			);
 
 			const p = this.calcLinePoints();
 			const config = {
@@ -41,7 +33,6 @@
 				lineWidth: this.strokeWidth,
 				radius: this.radius,
 			};
-			console.log(p.x1, p.y1, p.x2, p.y2, "p.x1, p.y1, p.x2, p.y2");
 			this.ArrowLine(ctx, p.x1, p.y1, p.x2, p.y2, config);
 		},
 		ArrowLine(ctx, startx, starty, endx, endy, config) {

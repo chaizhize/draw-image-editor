@@ -1,23 +1,26 @@
 <!--  -->
 <template>
 	<div class="fabricCanvas">
-		<drawFabric @savesuccess="(data) => $emit('savesuccess', data)" />
+		<drawFabric
+			:handleFabric="handleFabric"
+			@savesuccess="(data) => $emit('savesuccess', data)"
+		/>
 		<canvas :id="id"></canvas>
 	</div>
 </template>
 
 <script>
-	import drawFabric from "./draw-brush/index.vue";
-	import { mutations, state } from "./store";
 	import { fabric } from "fabric";
+	import drawFabric from "./draw-brush/index.vue";
 	import { toDecimal2, checkDataType } from "jsmethodutils";
 	import "./tools/drawBracket";
 	import "./tools/drawWave";
 	import "./tools/drawArrow";
 	import "./tools/drawBomb";
 	import "./iconfont/iconfont.css";
+	import { mutations, state } from "./store";
 	export default {
-		name: "fabricCanvas",
+		name: "fabriccanvas",
 		components: { drawFabric },
 		props: {},
 		data() {
@@ -80,6 +83,7 @@
 		watch: {
 			currentGraph: {
 				handler(newVal, oldVal) {
+					console.log("currentGraph", this.currentGraph);
 					this.handleFabric();
 				},
 				deep: true,
@@ -88,6 +92,9 @@
 		created() {},
 		mounted() {
 			this.init();
+			this.$bus.$on("forceUpdate", (value) => {
+				this.handleFabric();
+			});
 		},
 		methods: {
 			init() {
@@ -219,6 +226,7 @@
 				this.FabricEl.on("mouse:up", (e) => this.onmouseup(e));
 			},
 			onmousedown(opt) {
+				console.log("downdowndowndown");
 				this.mouseFrom.x = opt.e.offsetX;
 				this.mouseFrom.y = opt.e.offsetY;
 				this.doDrawing = true;
@@ -244,7 +252,11 @@
 				this.FabricEl.add(this.bolangLine);
 			},
 			onmousemove(opt) {
-				if (this.isSelect || this.currentGraph.name === "text") {
+				if (
+					this.currentGraph.name == "rubber" ||
+					this.isSelect ||
+					this.currentGraph.name === "text"
+				) {
 					return;
 				}
 				if (this.moveCount % 2 && !this.doDrawing) {
@@ -280,11 +292,13 @@
 			},
 			onremove(e) {
 				if (this.currentGraph.name == "rubber") {
+					console.log("rrrrrrrrrrrrrrrrrrrrrr");
 					this.FabricEl.remove(e.target);
 					this.FabricEl.discardActiveObject(); //清楚选中框
 				}
 			},
-			handleFabric(item) {
+			handleFabric() {
+				console.log("handleFabrichandleFabric", this.currentGraph);
 				this.FabricEl.isDrawingMode = false;
 				if (this.textbox) {
 					//退出文本编辑状态
@@ -470,7 +484,7 @@
 		},
 	};
 </script>
-<style scoped>
+<style>
 	.fabricCanvas {
 		width: auto;
 		max-width: 1000px;

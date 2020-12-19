@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 20:47:56
- * @LastEditTime: 2020-12-17 19:04:47
+ * @LastEditTime: 2020-12-19 00:09:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/components/drawCanvas/draw-brush/offsideItem.vue
@@ -14,7 +14,7 @@
 			v-for="item in offsideItem"
 			:key="item.name"
 			:title="item.name"
-			:class="{ active: currentGraph.name === item.name }"
+			:class="{ menuActive: currentGraph.name === item.name }"
 		>
 			<!-- <i
 				class="fa iconfont"
@@ -31,14 +31,14 @@
 			<div
 				v-if="item.show"
 				class="item-config"
-				:class="{ active: currentGraph.name === item.name }"
+				:class="{ configActive: currentGraph.name === item.name }"
 			>
 				<span
 					v-for="size in item.size"
 					:key="size"
 					class="size"
 					:class="{
-						active: currentGraph.size === size,
+						sizeActive: currentGraph.size === size,
 						[size]: size,
 					}"
 					@click="handleSetGraph('size', size)"
@@ -48,7 +48,7 @@
 					:key="color"
 					class="color"
 					:class="{
-						active: currentGraph.color === color,
+						colorActive: currentGraph.color === color,
 						[color]: color,
 					}"
 					@click="handleSetGraph('color', color)"
@@ -59,10 +59,12 @@
 </template>
 
 <script>
-	import offsideItem from "./config";
 	import { mutations, state } from "../store";
+	import offsideItem from "./config";
 	export default {
+		name: "offsideItem",
 		components: {},
+		// props: ["handleFabric"],
 		data() {
 			return {
 				offsideItem,
@@ -75,9 +77,32 @@
 		},
 		methods: {
 			handleSetGraph(type, value) {
-				mutations.SET_CURRENT_GRAPH(type, value);
+				mutations.SET_CURRENT_GRAPH(type, value, this.$forceUpdate);
+				this.$forceUpdate();
+				this.$bus.$emit("forceUpdate");
 			},
 		},
 	};
 </script>
-<style scoped></style>
+<style lang="less">
+	.offsideItem {
+		.menuActive {
+			background: #ded8d8 !important;
+		}
+		.sizeActive {
+			background: #00be00 !important;
+		}
+		.size:hover {
+			background: #00be00 !important;
+		}
+		.colorActive {
+			background: #fff !important;
+		}
+		.color:hover {
+			background: #fff !important;
+		}
+		.configActive {
+			display: flex !important;
+		}
+	}
+</style>

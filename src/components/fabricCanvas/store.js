@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-11 16:14:55
- * @LastEditTime: 2020-12-17 18:00:31
+ * @LastEditTime: 2020-12-19 00:09:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/components/drawCanvas/store.js
@@ -21,7 +21,6 @@ const graph = [
 ];
 const initGraph = function() {
 	return graph.reduce((prev, item) => {
-		console.log(item);
 		prev[item] = {
 			color: "red",
 			size: "normal",
@@ -32,8 +31,8 @@ const initGraph = function() {
 
 export let state = Vue.observable({
 	FabricEl: null, // canvas元素
+	currentGraph: { name: "arrow", color: "red", size: "normal" }, // 当前选中的工具
 	drawGraph: initGraph,
-	currentGraph: { name: "brush", color: "red", size: "normal" }, // 当前选中的工具
 });
 export let mutations = {
 	FABRIC_EL(payload) {

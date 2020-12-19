@@ -26,14 +26,6 @@
 		_render(ctx) {
 			// this.callSuper('_render', ctx);
 			// ctx.save();
-			console.log(
-				this.x1,
-				this.y1,
-				this.x2,
-				this.y2,
-				this,
-				"this.x1, this.y1, this.x2, this.y2"
-			);
 
 			const p = this.calcLinePoints();
 			const config = {
@@ -41,7 +33,6 @@
 				lineWidth: this.strokeWidth,
 				radius: this.radius,
 			};
-			console.log(p.x1, p.y1, p.x2, p.y2, "p.x1, p.y1, p.x2, p.y2");
 			this.bracketLine(ctx, p.x1, p.y1, p.x2, p.y2, config);
 			// this.bracketLine(ctx, this.x1, this.y1, this.x2, this.y2, config);
 		},
@@ -49,7 +40,6 @@
 			let { color = "#E34F51", lineWidth = 3, radius = 10 } = config;
 			radius = (y2 - y1) / 5 > radius ? 10 : Math.abs((y2 - y1) / 5);
 			var z1 = (y2 - y1 - 4 * radius) / 2; //> 0 ? (y2 - y1 - 4 * radius) / 2 : 0;
-			console.log("z1z1z1z1z1z1z1z1z1", z1);
 			ctx.beginPath();
 			ctx.closePath();
 			ctx.lineWidth = lineWidth;

@@ -14,7 +14,6 @@
 
 		initialize(element, options) {
 			options || (options = {});
-			console.log("options", options);
 			this.callSuper("initialize", element, options);
 
 			// Set default options
@@ -27,13 +26,6 @@
 		_render(ctx) {
 			// this.callSuper('_render', ctx);
 			ctx.save();
-			// console.log(
-			// 	this.x2,
-			// 	this.x2,
-			// 	this.y1,
-			// 	this.y2,
-			// 	"xyxyxyxyxyxyxyyxy"
-			// );
 			const xDiff = this.x2 - this.x1;
 			const yDiff = this.y2 - this.y1;
 			const angle = Math.atan2(yDiff, xDiff);

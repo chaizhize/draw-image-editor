@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 15:22:52
- * @LastEditTime: 2020-12-18 16:22:03
+ * @LastEditTime: 2020-12-19 00:44:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/App.vue
@@ -20,7 +20,9 @@
 </template>
 
 <script>
-	import fabricCanvas from "./components/fabricCanvas/index";
+	// import fabricCanvas from "./components/fabricCanvas/index";
+	import fabricCanvas from "../dist/fabricCanvas.min.js";
+
 	export default {
 		name: "App",
 		components: {

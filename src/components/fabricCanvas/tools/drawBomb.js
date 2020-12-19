@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-16 14:09:19
- * @LastEditTime: 2020-12-18 14:15:32
+ * @LastEditTime: 2020-12-18 23:30:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/components/fabricCanvas/drawBomb.js
@@ -34,14 +34,6 @@
 		_render(ctx) {
 			// this.callSuper('_render', ctx);
 			// ctx.save();
-			console.log(
-				this.x1,
-				this.y1,
-				this.x2,
-				this.y2,
-				this,
-				"this.x1, this.y1, this.x2, this.y2"
-			);
 
 			const p = this.calcLinePoints();
 			const config = {
@@ -49,7 +41,6 @@
 				lineWidth: this.strokeWidth,
 				radius: this.radius,
 			};
-			console.log(p.x1, p.y1, p.x2, p.y2, "p.x1, p.y1, p.x2, p.y2");
 			this.DrawBomb(ctx, p.x1, p.y1, p.x2, p.y2, config);
 		},
 		DrawBomb(ctx, startx, starty, endx, endy, config) {
