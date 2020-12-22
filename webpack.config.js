@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-17 18:29:43
- * @LastEditTime: 2020-12-18 23:25:35
+ * @LastEditTime: 2020-12-21 11:08:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /drawcanvaseditor/webpack.config.js
@@ -24,15 +24,18 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(css|less)$/,
-				loader: ["style-loader", "css-loader", "less-loader"],
+				use: ["style-loader", "css-loader", "less-loader"],
 			},
-			{ test: /\.vue$/, loader: "vue-loader" },
+			{ test: /\.vue$/, use: ["vue-loader"] },
 			{
 				test: /\.(woff2?|svg|ttf|otf|eot)(\?.*)?$/i,
-				loader: "url-loader?limit=6144&name=font/[name].[hash:5].[ext]",
+				use: ["url-loader?limit=6144&name=font/[name].[hash:5].[ext]"],
 			},
-			{ test: /\.(jpg|png|jpeg|gif)$/, loader: "url-loader" },
+			{ test: /\.(jpg|png|jpeg|gif)$/, use: ["url-loader"] },
 		],
 	},
 	plugins: [new VueLoaderPlugin()],
+	//webpack配置
+	// "main": "dist/fabricCanvas.min.js",
+	//
 };

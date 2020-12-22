@@ -1,10 +1,9 @@
 {
 	"name": "draw-image-editor",
-	"version": "1.0.",
+	"version": "1.5.0",
 	"private": false,
 	"description": "canvas fabric work correct",
 	"author": "chaizhize <chaizhize>",
-	"main": "dist/fabricCanvas.min.js",
 	"keywords": [
 		"canvas",
 		"fabric",
@@ -12,41 +11,54 @@
 		"作业批改",
 		"Vue",
 		"ImageEditor",
-		"图片编辑"
+		"图片编辑",
+		"draw-image-editor",
+		"FabricCanvas"
 	],
-	"files": [
-		"dist"
-	],
+	"main": "./lib/FabricCanvas.umd.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"builds": "webpack --config webpack.config.js",
-		"lint": "vue-cli-service lint"
+		"lint": "vue-cli-service lint",
+		"lib": "vue-cli-service build --target lib --name FabricCanvas --dest lib packages/index.js"
 	},
 	"dependencies": {
 		"core-js": "^3.6.5",
 		"fabric": "^4.2.0",
 		"jsmethodutils": "^1.0.4",
-		"normalize.css": "^8.0.1",
 		"vue": "^2.6.11"
+	},
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chaizhize/draw-image-editor.git"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "~4.5.0",
 		"@vue/cli-plugin-eslint": "~4.5.0",
 		"@vue/cli-service": "~4.5.0",
 		"babel-eslint": "^10.1.0",
-		"css-loader": "^5.0.1",
+		"babel-preset-env": "^1.7.0",
+		"css-loader": "^3.4.1",
 		"eslint": "^6.7.2",
-		"eslint-plugin-vue": "^6.2.2",
-		"less": "^3.13.0",
+		"less": "^4.0.0",
 		"less-loader": "^7.1.0",
+		"eslint-plugin-vue": "^6.2.2",
+		"mini-css-extract-plugin": "^0.9.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.3",
+		"safe-umd-webpack-plugin": "^4.0.0",
 		"style-loader": "^2.0.0",
+		"stylus-loader": "^3.0.2",
+		"svg-inline-loader": "^0.8.2",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"url-loader": "^4.1.1",
 		"vue-loader": "^15.9.6",
-		"vue-loader-plugin": "^1.3.0",
-		"vue-style-loader": "^4.1.2",
-		"vue-template-compiler": "^2.6.12",
-		"webpack": "^4.44.2",
-		"webpack-cli": "^4.2.0"
+		"vue-template-compiler": "^2.6.11",
+		"webpack": "^4.41.5",
+		"webpack-cli": "^3.3.10"
 	},
 	"eslintConfig": {
 		"root": true,
