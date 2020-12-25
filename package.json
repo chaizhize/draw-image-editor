@@ -1,6 +1,6 @@
 {
-	"name": "draw-image-editor",
-	"version": "1.5.0",
+	"name": "draw-image-editor3",
+	"version": "1.5.4",
 	"private": false,
 	"description": "canvas fabric work correct",
 	"author": "chaizhize <chaizhize>",
@@ -25,9 +25,11 @@
 	},
 	"dependencies": {
 		"core-js": "^3.6.5",
+		"draw-image-editor": "^1.5.3",
 		"fabric": "^4.2.0",
 		"jsmethodutils": "^1.0.4",
-		"vue": "^2.6.11"
+		"vue": "^2.6.11",
+		"vue-router": "^3.4.9"
 	},
 	"files": [
 		"lib"

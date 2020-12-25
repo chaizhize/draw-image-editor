@@ -1,5 +1,20 @@
 ### draw-image-editor
 
+##### describe
+
+    1.基于vue+fabric开发的canvas图片编辑，绘图功能。
+    2.画布根据传入图片生成自适应宽高，可调节最大宽度。
+    2.支持多种类型图案绘制
+    3.支持调节颜色，画笔粗细。
+    3.生成json对象，随时编辑存储，不用每次生成新图，浪费资源。
+    4.右侧编辑区可拖动。（支持自定义）
+
+##### preview
+
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34c636ea0b2b439b8c91182ae2d69eb9~tplv-k3u1fbpfcp-watermark.image)
+
+![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a881923e908489f8f71a93d83cc40ca~tplv-k3u1fbpfcp-watermark.image)
+
 ##### install
 
 ---

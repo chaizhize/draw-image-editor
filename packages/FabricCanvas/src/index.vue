@@ -96,6 +96,9 @@
 					if (this.currentGraph.type === "name") {
 						this.handleFabric();
 					}
+					if (this.currentGraph.name === "repeal") {
+						this.undoDraw();
+					}
 				},
 				deep: true,
 			},

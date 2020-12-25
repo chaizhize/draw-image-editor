@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-11 23:24:41
- * @LastEditTime: 2020-12-22 11:08:58
+ * @LastEditTime: 2020-12-25 15:21:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/components/drawCanvas/draw-brush/config.js

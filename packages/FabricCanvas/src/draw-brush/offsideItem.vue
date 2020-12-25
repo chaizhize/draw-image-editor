@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 20:47:56
- * @LastEditTime: 2020-12-21 17:36:12
+ * @LastEditTime: 2020-12-25 16:28:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /draw-image-editor/src/components/drawCanvas/draw-brush/offsideItem.vue
@@ -14,7 +14,9 @@
 			v-for="item in offsideItem"
 			:key="item.name"
 			:title="item.name"
-			:class="{ menuActive: currentGraph.name === item.name }"
+			:class="{
+				menuActive: currentGraph.name === item.name,
+			}"
 		>
 			<!-- <i
 				class="fa iconfont"
@@ -22,7 +24,7 @@
 				@click="currentGraph.name = item.name"
 			></i> -->
 			<i
-				class="fa"
+				class="font"
 				style="font-size:12px"
 				@click="handleSetGraph('name', item.name)"
 				>{{ item.title }}</i
@@ -55,6 +57,11 @@
 				></span>
 			</div>
 		</div>
+		<div class="menu-item" title="撤销">
+			<i class="font" style="font-size:12px" @click="handleRepeal()"
+				>撤销</i
+			>
+		</div>
 	</div>
 </template>
 
@@ -73,10 +80,20 @@
 			currentGraph() {
 				return state.currentGraph;
 			},
+			FabricEl() {
+				return state.FabricEl;
+			},
 		},
 		methods: {
 			handleSetGraph(type, value) {
 				mutations.SET_CURRENT_GRAPH(type, value);
+			},
+			handleRepeal() {
+				console.log(this.FabricEl._objects, "sssss");
+				if (this.FabricEl._objects.length > 0) {
+					this.FabricEl._objects.pop();
+					this.FabricEl.renderAll();
+				}
 			},
 		},
 	};

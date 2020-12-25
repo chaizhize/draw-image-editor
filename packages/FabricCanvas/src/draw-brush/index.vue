@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-11 11:28:50
- * @LastEditTime: 2020-12-21 17:58:36
+ * @LastEditTime: 2020-12-25 16:29:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /vue-goodsku/src/components/drwaCanvas/draw-brush.vue
@@ -13,7 +13,7 @@
 		<!-- 拖拽按钮 -->
 		<div class="menu-item">
 			<i
-				class="fa  el-icon-rank"
+				class="font  iconfont icon-rank"
 				ref="btnMove"
 				@mousedown="handleMenusMove"
 			></i>
